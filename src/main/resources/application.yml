@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: smartload-optimizer
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+# Logging
+logging:
+  level:
+    com.logistics: INFO
+    org.springframework.web: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
